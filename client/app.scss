@@ -1,0 +1,104 @@
+$border-color: #ccc;
+$border: 1px solid $border-color;
+body {
+  padding-top: 80px;
+}
+
+[role="navigation"] {
+  padding-top: 10px;
+}
+
+.user-panel {
+  float: left;
+  .btn-group {
+    font-weight: bold;
+    .user-avatar {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      margin-right: 5px;
+      padding: 4px 6px;
+      background: white;
+      border-radius: 50%;
+      border: $border;
+      span {
+        color: #999;
+      }
+    }
+    button {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      &:active {
+        box-shadow: none;
+      }
+    }
+    .caret {
+      margin-top: -1px;
+      margin-left: 3px;
+    }
+    &.open .dropdown-toggle {
+      box-shadow: none;
+    }
+  }
+}
+
+.user-actions {
+  float: right;
+}
+
+.form-group {
+  .checkbox,
+  .radio {
+    margin: 0;
+    height: 25px;
+    min-height: 0;
+  }
+}
+
+.talks-feed {
+  list-style-type: none;
+  margin-top: 15px;
+  li {
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.talk-time {
+  // border-left: $border;
+  h5 {
+    margin-bottom: 0;
+    font-weight: bold;
+    + h5 {
+      margin-top: .25em;
+    }
+  }
+  .talk-location {
+    h5 {
+      font-weight: normal;
+    }
+  }
+  h6 {
+    text-transform: uppercase;
+    color: #999;
+  }
+}
+
+//Talk page
+
+.back-arrow {
+  font-size: 15px;
+  position: relative;
+  top: -1px;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.cancel {
+  margin-right: 15px;
+}
