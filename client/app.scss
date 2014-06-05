@@ -66,7 +66,7 @@ body {
   }
 }
 
-.talk-time {
+.talk-detail {
   // border-left: $border;
   h5 {
     margin-bottom: 0;
@@ -86,7 +86,7 @@ body {
   }
 }
 
-//Talk page
+//Add Talk page
 
 .back-arrow {
   font-size: 15px;
@@ -101,4 +101,28 @@ textarea {
 
 .cancel {
   margin-right: 15px;
+}
+
+//Talk single
+
+.talk-single {
+  .page-header {
+    text-align: center;
+    small {
+      margin-top: 5px;
+      display: block;
+    }
+  }
+  .talk-desc {
+    p {
+      padding: 0 10px;
+    }
+    > p {
+    font-size: 18px;
+    line-height: 1.5;
+    + p {
+      padding: 10px;
+    }
+  }
+  }
 }

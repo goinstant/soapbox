@@ -4,10 +4,13 @@
 
 module.exports = Talk;
 
-function Talk() {
+function Talk(id) {
   console.log('new talk returned');
+  this.id = id;
 }
 
 Talk.factory = function() {
-  return new Talk();
+  return function(id) {
+    return new Talk(id);
+  };
 };

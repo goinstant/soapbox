@@ -3,5 +3,5 @@
 'use strict';
 
 module.exports = angular
-  .module('lnl.talk', [])
+  .module('sb.talk', [])
   .factory('TalkModel', require('./talk-model.js').factory);

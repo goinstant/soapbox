@@ -2,6 +2,5 @@
 
 'use strict';
 
-module.exports = angular
-  .module('lnl.talks.detail', [])
+module.exports = angular.module('lnl.talks.detail', [])
   .controller('TalksDetailCtrl', require('./detail-controller'));

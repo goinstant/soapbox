@@ -30,6 +30,26 @@ module.exports = [
             controller: 'TalksAddCtrl'
           }
         }
+      })
+      .state('talks.detail', {
+        url: '/:talkId',
+        resolve: {
+          currentTalk: function($q, $timeout, TalkModel, $stateParams) {
+            var deferred = $q.defer();
+
+            $timeout(function() {
+               deferred.resolve(new TalkModel($stateParams.talkId));
+            }, 500);
+
+            return deferred.promise;
+          }
+        },
+        views : {
+          'main@': {
+            templateUrl: '../talks/detail/detail.html',
+            controller: 'TalksDetailCtrl'
+          }
+        }
       });
   }
 ];

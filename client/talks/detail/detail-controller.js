@@ -2,6 +2,6 @@
 
 'use strict';
 
-module.exports = function DetailCtrl() {
-  console.log('talks controller loaded');
+module.exports = function DetailCtrl(currentTalk) {
+  console.log(currentTalk);
 };

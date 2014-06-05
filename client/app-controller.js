@@ -2,7 +2,7 @@
 
 'use strict';
 
-module.exports = angular.module('lnl.controllers', [])
+module.exports = angular.module('sb.controllers', [])
   .controller('AppCtrl', function() {
     console.log('app controller loaded');
   });

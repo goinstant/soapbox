@@ -3,7 +3,7 @@
 'use strict';
 
 angular
-  .module('LunchNLearn', [
+  .module('Soapbox', [
     'ui.router',
     require('./components/navigation').name,
     require('./components/login').name,
