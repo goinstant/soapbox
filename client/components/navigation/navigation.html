@@ -1,22 +1,35 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="user-panel">
-      <!-- <button type="button" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-off"></span> Login with Github</button> -->
-      <div class="btn-group">
+      <a
+        ng-show="conn.isGuest"
+        type="button"
+        class="btn btn-sm btn-primary"
+        href="{{provider.url}}">
+        <span class="glyphicon glyphicon-off"></span>
+        Login with Twitter
+      </a>
+      <div ng-show="!conn.isGuest" class="btn-group">
         <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
           <span class="user-avatar">
-            <span class="glyphicon glyphicon-user"></span>
+            <span class="glyphicon glyphicon-user"><img src=""></span>
           </span>
-          Username <span class="caret"></span>
+          {{users.$local.displayName}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add Talk</a></li>
+          <li><a href="{{conn.logoutUrl}}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Add Talk</a></li> -->
         </ul>
       </div>
     </div>
     <div class="user-actions">
-      <button ui-sref="talks.add" type="button" class="btn btn-sm btn-primary">&#43; New Talk</button>
+      <button
+        ng-class="{ 'disabled': conn.isGuest }"
+        ui-sref="talks.add"
+        type="button"
+        class="btn btn-sm btn-primary">
+        &#43; New Talk
+      </button>
     </div>
   </div>
 </nav>

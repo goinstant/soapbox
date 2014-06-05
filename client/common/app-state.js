@@ -24,6 +24,7 @@ module.exports = [
       })
       .state('talks.add', {
         url: '/add',
+        restricted: true,
         views : {
           'main@': {
             templateUrl: '../talks/add/add.html',

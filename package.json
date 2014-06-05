@@ -1,10 +1,11 @@
 {
-  "name": "lnl",
+  "name": "Soapbox",
   "version": "0.0.0",
   "description": "organized lunch & learns",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -14,7 +15,9 @@
     "gulp-browserify": "~0.5.0",
     "gulp-clean": "~0.3.0",
     "harp": "~0.12.1",
-    "gulp-livereload": "~1.5.0",
-    "gulp-sass": "^0.7.1"
+    "gulp-sass": "^0.7.1",
+    "express": "~4.4.1",
+    "connect-livereload": "~0.4.0",
+    "tiny-lr": "0.0.7"
   }
 }

@@ -5,11 +5,15 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var clean = require('gulp-clean');
-var livereload = require('gulp-livereload');
 var sass = require('gulp-sass');
-var harp = require('harp');
+var path = require('path');
+var express = require('express');
+
+var EXPRESS_PORT = 3000;
+var LIVERELOAD_PORT = 35729;
 
 var pathTo = {
+  expressRoot: __dirname + '/client',
   entry: './client/app.js',
   build: './client/build',
   styles: './client/*.scss',
@@ -21,7 +25,7 @@ var pathTo = {
     './client/talks/**/*.js'
   ],
   watchBuild: [
-    './client/build/app.js',
+    './client/build/*.js',
     './client/build/*.css',
     './client/**/*.html'
   ]
@@ -32,7 +36,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('styles', function () {
-  return gulp.src(pathTo.styles)
+  gulp.src(pathTo.styles)
     .pipe(sass())
     .pipe(gulp.dest(pathTo.build));
 });
@@ -43,15 +47,36 @@ gulp.task('develop', ['clean', 'styles'], function() {
     .pipe(gulp.dest(pathTo.build));
 });
 
-gulp.task('server', function() {
-  harp.server(__dirname + './client', { port: 5000 });
-});
-
 gulp.task('default', ['develop'], function() {
+  startExpress();
+  startLivereload();
   gulp.watch(pathTo.watch, ['develop']);
-
-  var server = livereload();
-  gulp.watch(pathTo.watchBuild).on('change', function(file) {
-    server.changed(file.path);
-  });
+  gulp.watch(pathTo.watchBuild, notifyLivereload);
 });
+
+/** Development Utility Methods **/
+
+function startExpress() {
+  var app = express();
+
+  app.use(require('connect-livereload')());
+  app.use(express.static(pathTo.expressRoot));
+  app.listen(EXPRESS_PORT);
+}
+
+// Reference to the tinylr object for file change notifications
+var lr;
+function startLivereload() {
+  lr = require('tiny-lr')();
+  lr.listen(LIVERELOAD_PORT);
+}
+
+// Notifies livereload of changes detected by watch
+function notifyLivereload(event) {
+  console.log('changing changing changing?');
+  // `gulp.watch()` events provide an absolute path
+  // so we'll make it relative to the server root
+  var fileName = path.relative(pathTo.expressRoot, event.path);
+  lr.changed({ body: { files: [fileName] } });
+}
+
