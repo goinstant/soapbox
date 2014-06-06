@@ -1,4 +1,4 @@
-![http://f.cl.ly/items/2H3P1E2s1O3S20130i1K/soapbox_banner.png](Soapbox)
+![Soapbox](http://f.cl.ly/items/2H3P1E2s1O3S20130i1K/soapbox_banner.png)
 
 # Soapbox
 A social webapp that crowdsources user created talks and events.
