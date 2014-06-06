@@ -23,7 +23,7 @@ $font-size-base:          17px;
 $line-height-base:        1.5;
 
 $headings-font-family:    "soleil", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headings-font-weight:    500;
+$headings-font-weight:    600;
 $headings-line-height:    1.1;
 $headings-color:          inherit;
 
@@ -36,4 +36,9 @@ $btn-danger-border:              rgba(0,0,0,.0);
 
 //== Navbar
 $navbar-height: 175px;
+$header-scale-animation: .15s ease;
+
+//== Well
+$well-bg:                     darken($body-bg, 5%);
+$well-border:                 darken($well-bg, 7%);
 

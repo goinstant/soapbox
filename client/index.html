@@ -15,8 +15,9 @@
     </head>
     <body ng-controller="AppCtrl">
         <nav ui-view="nav"></nav>
-        <div ui-view="main" class="container">Loading...</div>
-        <hr>
+        <div ui-view="main" class="container">
+            <div class="page-loader"></div>
+        </div>
 
         <!-- Vendor components -->
         <script src="/vendor_components/lodash/dist/lodash.min.js"></script>
