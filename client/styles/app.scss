@@ -1,11 +1,23 @@
-$border-color: #ccc;
-$border: 1px solid $border-color;
+@import "partials/variables";
+@import "../vendor_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+
 body {
-  padding-top: 80px;
+  padding-top: $navbar-height + $padding-large-vertical*3;
 }
 
-[role="navigation"] {
-  padding-top: 10px;
+//= Header/Navbar
+#header {
+  background: $brand-success;
+  border: 0;
+}
+
+p {
+  font-family: $font-family-serif;
+}
+
+.glyphicon {
+  font-size: .85em;
 }
 
 .user-panel {

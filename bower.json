@@ -14,11 +14,12 @@
     "e2e-tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1",
     "lodash": "~2.4.1",
     "angular": "~1.2.16",
     "modernizr": "~2.8.2",
     "angular-ui-router": "~0.2.10",
-    "goangular": "~3.3.7"
+    "goangular": "~3.3.7",
+    "bootstrap-sass-official": "~3.1.1+2",
+    "jquery": "~2.1.1"
   }
 }
