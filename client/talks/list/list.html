@@ -1,4 +1,4 @@
-<div id="sidebar" class="filters col-md-3">
+<div id="sidebar" class="filters col-sm-3">
   <form role="search">
     <div class="form-group">
       <label for="talk-search"><span class="glyphicon glyphicon-search"></span> Search talks</label>
@@ -8,38 +8,37 @@
     <div class="well">
       <div class="form-group">
         <label for="talk-location"><span class="glyphicon glyphicon-map-marker"></span> Location</label>
-        <input type="text" class="form-control" id="talk-location" placeholder="Location">
+        <input type="text" class="form-control" id="talk-location" value="Halifax, NS" placeholder="Location">
       </div>
-      <hr>
       <div class="form-group">
-        <h5><span class="glyphicon glyphicon-time"></span> Time of next talk</h5>
+        <!-- <h5><span class="glyphicon glyphicon-time"></span> Time of next talk</h5> -->
+        <label><span class="glyphicon glyphicon-time"></span> Time of next talk</label>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Morning
+            <input type="checkbox" checked> Morning
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Daytime
+            <input type="checkbox" checked> Daytime
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Evening
+            <input type="checkbox" checked> Evening
           </label>
         </div>
       </div>
-      <hr>
       <div class="form-group">
-        <h5><span class="glyphicon glyphicon-lock"></span> Talk visibility</h5>
+        <label><span class="glyphicon glyphicon-lock"></span> Talk visibility</label>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Public
+            <input type="checkbox" checked> Public
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> Private
+            <input type="checkbox" checked> Private
           </label>
         </div>
       </div>
@@ -50,17 +49,19 @@
   <ul class="talks-feed row">
     <li class="col-md-12">
       <div class="col-md-2">
-        <span class="avatar">
-          <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
-        </span>
+        <a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">
+          <span class="avatar">
+            <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
+          </span>
+        </a>
       </div>
-      <div class="col-md-6 talk-content">
+      <div class="col-md-7 talk-content">
         <h4><a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">Intro to talk introduction</a></h4>
         <h5><span class="glyphicon glyphicon-user"></span> <a href="#">Talk Authorman</a></h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque fugiat in adipisci quidem ratione temporibus commodi.</p>
       </div>
-      <div class="col-md-4 talk-time">
-        <h6><span class="glyphicon glyphicon-time"></span> Next Talk</h6>
+      <div class="col-md-3 talk-detail">
+        <h6><span class="glyphicon glyphicon-comment"></span> Next Talk</h6>
         <h5>June 2, 2014</h5>
         <h5>12:00 PM</h5>
         <div class="talk-location">
@@ -71,17 +72,19 @@
     </li>
     <li class="col-md-12">
       <div class="col-md-2">
-        <span class="avatar">
-          <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
-        </span>
+       <a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">
+          <span class="avatar">
+              <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
+          </span>
+        </a>
       </div>
-      <div class="col-md-6 talk-content">
+      <div class="col-md-7 talk-content">
         <h4><a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">Intro to talk introduction</a></h4>
         <h5><span class="glyphicon glyphicon-user"></span> <a href="#">Talk Authorman</a></h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque fugiat in adipisci quidem ratione temporibus commodi.</p>
       </div>
-      <div class="col-md-4 talk-time">
-        <h6><span class="glyphicon glyphicon-time"></span> Next Talk</h6>
+      <div class="col-md-3 talk-detail">
+        <h6><span class="glyphicon glyphicon-comment"></span> Next Talk</h6>
         <h5>June 2, 2014</h5>
         <h5>12:00 PM</h5>
         <div class="talk-location">
@@ -92,17 +95,19 @@
     </li>
     <li class="col-md-12">
       <div class="col-md-2">
-        <span class="avatar">
-          <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
-        </span>
+        <a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">
+          <span class="avatar">
+            <img src="http://placecage.com/g/100/100" class="img-circle" alt="">
+          </span>
+        </a>
       </div>
-      <div class="col-md-6 talk-content">
+      <div class="col-md-7 talk-content">
         <h4><a href="#" ui-sref="talks.detail({ talkId: 'dffdfd' })">Intro to talk introduction</a></h4>
         <h5><span class="glyphicon glyphicon-user"></span> <a href="#">Talk Authorman</a></h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, atque fugiat in adipisci quidem ratione temporibus commodi.</p>
       </div>
-      <div class="col-md-4 talk-time">
-        <h6><span class="glyphicon glyphicon-time"></span> Next Talk</h6>
+      <div class="col-md-3 talk-detail">
+        <h6><span class="glyphicon glyphicon-comment"></span> Next Talk</h6>
         <h5>June 2, 2014</h5>
         <h5>12:00 PM</h5>
         <div class="talk-location">

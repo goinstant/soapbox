@@ -1,0 +1,248 @@
+@import "partials/variables";
+@import "../vendor_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+body {
+  padding-top: $navbar-height + $padding-large-vertical*3;
+  padding-bottom: $padding-large-vertical*3;
+}
+
+//= Header/Navbar
+$logo-height: 113px;
+$logo-width: 188px;
+
+#header {
+  min-height: 0;
+  height: 175px;
+  border: 0;
+  border-bottom: 5px solid darken($brand-success, 10%);
+  background: $brand-success;
+  @include transition(height $header-scale-animation);
+  [class^="user-"] {
+    @include transition(padding-top $header-scale-animation);
+    padding-top: 115px;
+  }
+  &.smaller {
+    height: 70px;
+    #site-id {
+      overflow: hidden;
+      margin-top: -24px;
+      height: floor($logo-height/1.28);
+      a {
+        height: floor($logo-height/1.35);
+        width: floor($logo-width/1.35);
+      }
+    }
+    [class^="user-"] {
+      padding-top: 15px;
+    }
+  }
+}
+
+#site-id {
+  margin: 0;
+  text-align: center;
+  @include transition(all $header-scale-animation);
+  a {
+    @include hide-text();
+    display: inline-block;
+    height: $logo-height;
+    width: $logo-width;
+    background-image: url(/img/soapbox_logo.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    @include transition(all $header-scale-animation);
+  }
+}
+
+p {
+  font-family: $font-family-serif;
+}
+
+.glyphicon {
+  font-size: .85em;
+}
+
+.btn {
+  line-height: 1.5;
+  .glyphicon {
+    margin-right: .25em;
+  }
+}
+
+.user-panel {
+  .avatar {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-right: 5px;
+    padding: 6px 6px;
+    background: white;
+    border-radius: 50%;
+    span {
+      color: #999;
+      margin-right: 0;
+    }
+  }
+  .btn-group {
+    font-weight: bold;
+    button {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      color: white;
+      font-size: 19px;
+      &:active {
+        box-shadow: none;
+      }
+
+    }
+    .caret {
+      margin-top: -1px;
+      margin-left: 3px;
+      color: darken($brand-success, 20%);
+    }
+    &.open .dropdown-toggle {
+      box-shadow: none;
+    }
+  }
+}
+
+.dropdown-menu {
+  background: $gray-dark;
+  > li {
+    > a {
+      color: $body-bg;
+      &:hover {
+        background: $brand-primary;
+        color: white;
+      }
+    }
+  }
+}
+
+.user-actions {
+  text-align: right;
+}
+
+.form-group {
+  .checkbox,
+  .radio {
+    margin: 0;
+    height: 25px;
+    min-height: 0;
+  }
+}
+
+label {
+  font-weight: 100;
+}
+
+.talks-feed {
+  list-style-type: none;
+  margin-top: 15px;
+  font-size: .85em;
+  li {
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    .avatar {
+      display: block;
+      margin-top: 20px;
+      img {
+        box-shadow: 0 2px 5px fade-out(black, .9);
+      }
+    }
+    h4 a {
+      color: $brand-danger;
+    }
+    h5 a {
+      font-weight: 300;
+      color: $text-color;
+    }
+  }
+  .talk-detail {
+    text-align: left;
+    * {
+      font-size: .95em;
+    }
+  }
+}
+
+.talk-detail {
+  h5 {
+    margin-bottom: 0;
+    font-weight: bold;
+    + h5 {
+      margin-top: .25em;
+    }
+  }
+  .talk-location {
+    h5 {
+      font-weight: normal;
+    }
+  }
+  h6 {
+    text-transform: uppercase;
+    color: #999;
+  }
+}
+
+//Add Talk page
+
+.back-arrow {
+  font-size: 15px;
+  position: relative;
+  top: -1px;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.cancel {
+  margin-right: 15px;
+}
+
+//Talk single
+
+.talk-single {
+  .talk-title {
+    margin-bottom: -25px;
+    .avatar {
+      margin-right: 25px;
+    }
+  }
+  .talk-actions {
+    text-align: right;
+    padding-top: 50px;
+  }
+  .page-header {
+    margin-top: 25px;
+    border-bottom: 3px solid darken($body-bg, 5%);
+  }
+  h2 {
+    color: $brand-danger;
+  }
+  h4, h4 a {
+    color: $text-color;
+    font-weight: 100;
+  }
+  .talk-detail {
+    h6 {
+      margin-top: 0;
+      border-bottom: 1px solid $border-color;
+      padding-bottom: .5em;
+    }
+    h5 {
+      font-size: .85em;
+    }
+  }
+  .talk-desc {
+    > p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+  }
+}
