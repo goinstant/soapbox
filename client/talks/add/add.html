@@ -1,54 +1,59 @@
 <h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new talk</h3>
 <hr>
-<form class="form-horizontal" role="form">
+<form name="talkForm" ng-submit="submitTalkForm(talkForm.$valid)" class="form-horizontal" role="form" novalidate>
   <div class="form-group">
-    <label for="talk_title" class="col-sm-3 control-label">Talk title</label>
+    <label for="talk_title" class="col-sm-3 control-label">Title *</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control input-lg" id="talk_title" placeholder="How to make a webapp better than it already is">
+      <input name="title" ng-model="title" type="text" class="form-control input-lg" placeholder="Achieving Perfection in All Things" required>
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Description of your talk</label>
+    <label for="talk_desc" class="col-sm-3 control-label">Description *</label>
     <div class="col-sm-9">
-      <textarea class="form-control" id="talk_desc"></textarea>
+      <textarea name="description" ng-model="description" class="form-control" required></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Location</label>
+    <label for="talk_desc" class="col-sm-3 control-label">Est. Duration *</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control input-lg" id="talk_title" placeholder="Where is your event taking place?">
+      <input name="duration" ng-model="duration" type="text" class="form-control input-lg" placeholder="30 Mins" required>
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Date</label>
+    <label for="talk_desc" class="col-sm-3 control-label">Deck</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control input-lg" id="talk_date" placeholder="What date are you talking?">
+      <input name="deck" ng-model="deck" type="url" class="form-control input-lg" placeholder="https://slideshare.com/your_deck">
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Time</label>
+    <label for="talk_desc" class="col-sm-3 control-label">Recording</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control input-lg" id="talk_date" placeholder="When are you talking?">
+      <input name="video" ng-model="video" type="url" class="form-control input-lg" placeholder="https://youtube.com/your_deck">
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <div class="radio">
         <label>
-          <input type="radio" name="talk_visibility" id="talk_visibility_public" value="public" checked> <strong>Public</strong> <small>(anyone can see your talk)</small>
+          <input ng-model="talkVisibility" default name="talkVisibility" type="radio" value="public"> <strong>Public</strong> <small>(anyone can see your talk)</small>
         </label>
       </div>
       <div class="radio">
         <label>
-          <input type="radio" name="talk_visibility" id="talk_visibility_private" value="private"> <strong>Private</strong> <small>(only people with the link can see your talk)</small>
+          <input ng-model="talkVisibility" name="talkVisibility" type="radio" value="private"> <strong>Private</strong> <small>(only people with the link can see your talk)</small>
         </label>
       </div>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <div class="alert alert-danger">
-        You forgot to fill out the title, dummy!
+      <div ng-show="!talkForm.$valid && submitted" class="alert alert-danger">
+        <h5>Woops we have errors...</h5>
+        <p ng-show="talkForm.title.$invalid"> You forgot to fill out the title, dummy!</p>
+        <p ng-show="talkForm.description.$invalid"> You forgot to fill out the description!</p>
+        <p ng-show="talkForm.duration.$invalid"> You forgot to fill out the duration!</p>
+        <p ng-show="talkForm.deck.$invalid"> The deck url you provided doesn't appear to be valid?</p>
+        <p ng-show="talkForm.recording.$invalid"> The recording url you provided doesn't appear to be valid?</p>
       </div>
       <div class="pull-right">
           <a href="/" class="cancel">Cancel</a>

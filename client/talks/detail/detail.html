@@ -1,10 +1,10 @@
 <div class="talk-single">
   <div class="page-header container">
     <div class="talk-title col-md-9">
-        <img src="http://placecage.com/g/150/150" class="avatar img-circle pull-left" alt="">
+        <img ng-src="{{ currentTalk.author.avatarUrl }}" class="avatar img-circle pull-left" alt="">
       <div class="pull-left">
-        <h2>Name of the talk</h>
-        <h4> <span class="glyphicon glyphicon-user"></span> <a href="#">Talk Authorman</a></h4>
+        <h2>{{ currentTalk.title }}</h>
+        <h4><span class="glyphicon glyphicon-user"></span> <a href="#">{{ currentTalk.author.displayName }}</a></h4>
       </div>
     </div>
     <div class="talk-actions col-md-3">
@@ -13,8 +13,7 @@
   </div>
   <div class="container">
     <div class="col-md-9 talk-desc">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, vel, inventore blanditiis quaerat deserunt in consequatur soluta reprehenderit rerum iusto facilis quos necessitatibus eveniet reiciendis dolorum consequuntur praesentium earum pariatur. </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, vel, inventore blanditiis quaerat deserunt in consequatur soluta reprehenderit rerum iusto facilis quos necessitatibus eveniet reiciendis dolorum consequuntur praesentium earum pariatur.</p>
+      <p>{{ currentTalk.description }}</p>
     </div>
     <div class="col-md-3">
       <div class="panel panel-info">
