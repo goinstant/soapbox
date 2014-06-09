@@ -16,9 +16,9 @@ var pathTo = {
   expressRoot: __dirname + '/client',
   entry: './client/app.js',
   build: './client/build',
-  styles: './client/*.scss',
+  styles: './client/**/*.scss',
   watch: [
-    './client/*.scss',
+    './client/**/*.scss',
     './client/*.js',
     './client/common/**/*.js',
     './client/components/**.js',
