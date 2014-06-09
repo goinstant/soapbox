@@ -10,16 +10,10 @@ module.exports = angular.module('sb.controllers', [])
     $scope.provider = $scope.conn.loginProviders[0];
 
     $goConnection.$ready().then(function() {
-      console.log('connected to GI')
       window.thisDude = $scope.users;
     });
 
-    $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
-      console.log('kkk', $scope.conn.isGuest)
-      if (toState.restricted && $scope.conn.isGuest) {
-        var toUrl = (fromState.url === '^' ? 'talks' : fromState.name);
-        $state.go(toUrl);
-        event.preventDefault();
-      }
+    $scope.$on('$stateChangeError', function() {
+      console.log(arguments);
     });
   });

@@ -17,7 +17,7 @@
     "gulp-browserify": "~0.5.0",
     "gulp-clean": "~0.3.0",
     "gulp-sass": "^0.7.1",
-    "harp": "~0.12.1",
-    "tiny-lr": "0.0.7"
+    "tiny-lr": "0.0.7",
+    "lodash": "~2.4.1"
   }
 }

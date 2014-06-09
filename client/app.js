@@ -7,7 +7,7 @@ angular
     'ui.router',
     'goangular',
     require('./components/navigation').name,
-    require('./components/login').name,
+    require('./components/auth').name,
     require('./talks').name,
     require('./app-controller').name
   ])

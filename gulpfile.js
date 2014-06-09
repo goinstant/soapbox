@@ -13,7 +13,7 @@ var EXPRESS_PORT = 3000;
 var LIVERELOAD_PORT = 35729;
 
 var pathTo = {
-  expressRoot: __dirname + '/client',
+  expressRoot: './client',
   entry: './client/app.js',
   build: './client/build',
   styles: './client/**/*.scss',
@@ -21,7 +21,7 @@ var pathTo = {
     './client/**/*.scss',
     './client/*.js',
     './client/common/**/*.js',
-    './client/components/**.js',
+    './client/components/**/*.js',
     './client/talks/**/*.js'
   ],
   watchBuild: [

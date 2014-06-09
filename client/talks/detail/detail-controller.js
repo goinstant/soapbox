@@ -2,6 +2,6 @@
 
 'use strict';
 
-module.exports = function DetailCtrl(currentTalk) {
-  console.log(currentTalk);
+module.exports = function DetailCtrl() {
+
 };
