@@ -14,9 +14,9 @@ var LIVERELOAD_PORT = 35729;
 
 var pathTo = {
   expressRoot: './client',
-  entry: './client/app.js',
+  scriptEntry: './client/app.js',
+  stylesEntry: './client/styles/app.scss',
   build: './client/build',
-  styles: './client/**/*.scss',
   watch: [
     './client/**/*.scss',
     './client/*.js',
@@ -36,13 +36,13 @@ gulp.task('clean', function() {
 });
 
 gulp.task('styles', function () {
-  gulp.src(pathTo.styles)
+  gulp.src(pathTo.stylesEntry)
     .pipe(sass())
     .pipe(gulp.dest(pathTo.build));
 });
 
 gulp.task('develop', ['clean', 'styles'], function() {
-  gulp.src(pathTo.entry)
+  gulp.src(pathTo.scriptEntry)
     .pipe(browserify({ insertGlobals: false }))
     .pipe(gulp.dest(pathTo.build));
 });
@@ -73,7 +73,6 @@ function startLivereload() {
 
 // Notifies livereload of changes detected by watch
 function notifyLivereload(event) {
-  console.log('changing changing changing?');
   // `gulp.watch()` events provide an absolute path
   // so we'll make it relative to the server root
   var fileName = path.relative(pathTo.expressRoot, event.path);
