@@ -18,7 +18,6 @@
         </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="{{conn.logoutUrl}}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span> Add Talk</a></li> -->
         </ul>
       </div>
     </div>
@@ -28,13 +27,18 @@
       </h1>
     </div>
     <div class="user-actions col-xs-3">
-      <button
-        ng-class="{ 'disabled': conn.isGuest }"
-        ui-sref="talks.add"
-        type="button"
-        class="btn btn-primary">
-        <span class="glyphicon glyphicon-plus-sign"></span> New Talk
-      </button>
+      <div class="btn-group">
+        <button
+          ng-class="{ 'disabled': conn.isGuest }"
+          type="button"
+          class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-plus-sign"></span> New
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#" ui-sref="talks.add">Talk</a></li>
+          <li><a href="#" ui-sref="events.add">Event</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

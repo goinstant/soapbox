@@ -168,6 +168,15 @@ label {
   }
 }
 
+#list-nav {
+  margin-bottom: $padding-large-vertical*2;
+  text-align: center;
+  > li {
+    display: inline-block;
+    float: none;
+  }
+}
+
 .talks-feed {
   padding-left: 0;
   list-style-type: none;
