@@ -8,13 +8,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('talks', {
       url: '/talks',
-      resolve: {
-        authenticate: function(Authorization) {
-          var authorization = new Authorization();
 
-          return authorization.process();
-        }
-      },
       views : {
         'main': {
           templateUrl: '../talks/list/list.html',

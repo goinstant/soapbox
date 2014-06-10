@@ -33,7 +33,6 @@ Talk.prototype.$save = function() {
   var self = this;
 
   if (this.$key) return this.$key.$set(talkData);
-
   return Talk.key.$add(talkData).get('context').then(function(context) {
     self.$id = _.last(context.addedKey.split('/'));
     self.$key = Talk.key.$key(self.$id);

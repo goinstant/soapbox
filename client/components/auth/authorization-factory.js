@@ -10,7 +10,7 @@ function Authorization($rootScope, $state, $goConnection) {
   _.extend(this, {
     $conn: $goConnection,
     $state: $state,
-    restricted: $state.toState && $state.toState.restricted,
+    restricted: $rootScope.toState && $rootScope.toState.restricted,
     toState: $rootScope.toState,
     toStateParams: $rootScope.toStateParams,
     fromState: $rootScope.fromState
@@ -24,7 +24,10 @@ Authorization.factory = function($rootScope, $state, $goConnection) {
 };
 
 Authorization.prototype.isApproved = function() {
-   return (!this.restricted || !this.$conn.isGuest);
+  if (!this.restricted) return true;
+  if (!this.$conn.isGuest) return true;
+
+  return false;
 };
 
 Authorization.prototype.redirect = function(event) {
