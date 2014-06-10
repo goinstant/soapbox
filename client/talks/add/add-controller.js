@@ -2,7 +2,7 @@
 
 'use strict';
 
-module.exports = function AddCtrl($scope, $goKey, $goUsers, $state) {
+module.exports = function AddCtrl($scope, $goUsers, $state, Talk) {
   // Defaults
   $scope.talkVisibility = 'public';
 
@@ -12,7 +12,6 @@ module.exports = function AddCtrl($scope, $goKey, $goUsers, $state) {
     if (!isValid) return;
 
     $goUsers().$self().then(function(selfModel) {
-      var talks = $goKey('talks/org').$key($scope.talkVisibility);
       var talkData = {
         title: $scope.title,
         description: $scope.description,
@@ -22,10 +21,10 @@ module.exports = function AddCtrl($scope, $goKey, $goUsers, $state) {
         author: selfModel.id
       };
 
-      talks.$add(talkData).get('context').then(function(context) {
-        var talkId = _.last(context.addedKey.split('/'));
+      var talk = new Talk(talkData);
 
-        $state.go('talks.detail', { talkId: talkId });
+      talk.$save().then(function() {
+        $state.go('talks.detail', { talkId: talk.$id });
       });
     });
   };

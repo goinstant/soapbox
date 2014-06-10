@@ -1,4 +1,4 @@
-/* global module */
+/* global module, _ */
 
 'use strict';
 
