@@ -18,6 +18,8 @@
             <span class="username">{{users.$local.displayName}}</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li class="divider"></li>
             <li><a href="{{conn.logoutUrl}}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
           </ul>
         </div>
@@ -36,8 +38,8 @@
             <span class="glyphicon glyphicon-plus-sign"></span> New
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#" ui-sref="talks.add">Talk</a></li>
-            <li><a href="#" ui-sref="events.add">Event</a></li>
+            <li><a href="#" ui-sref="talks.add"><span class="glyphicon glyphicon-comment"></span> Talk</a></li>
+            <li><a href="#" ui-sref="events.add"><span class="glyphicon glyphicon-calendar"></span> Event</a></li>
           </ul>
         </div>
       </div>
