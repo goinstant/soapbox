@@ -4,6 +4,7 @@
 body {
   padding-top: $navbar-height + $padding-large-vertical*3;
   padding-bottom: $padding-large-vertical*3;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -11,9 +12,11 @@ img {
   height: auto;
 }
 
-#main.container {
-  padding-left: 0;
-  padding-right: 0;
+.form-control {
+  @include transition(border-color ease-in-out 0.1s, box-shadow ease-in-out 0.1s);
+  &:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0px 2px rgba(102, 175, 233, 0.6);
+  }
 }
 
 //= Header/Navbar
@@ -154,57 +157,87 @@ label {
   font-weight: 100;
 }
 
-#sidebar {
-  .well {
-    padding-left: 0;
-    padding-right: 0;
+#list-nav {
+  margin-bottom: 30px;
+  .nav {
+    border-bottom: 0;
+    font-size: .9em;
+  }
+}
+
+.filters {
+  font-size: .9em;
+  .row > .form-group:first-child {
+    padding-top: 20px;
+    border-top: $border;
   }
 }
 
 @media (min-width: $screen-sm-min) {
-  #sidebar .well .form-group {
-    width: auto;
+  #sidebar .filters .form-group {
+    width: 100%;
     float: left;
   }
 }
 
-#list-nav {
-  margin-bottom: $padding-large-vertical*2;
-  text-align: center;
-  > li {
-    display: inline-block;
-    float: none;
-  }
+.label-small {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.talks-feed {
+.talks-feed,
+.events-feed {
   padding-left: 0;
   list-style-type: none;
-  margin-top: 15px;
   font-size: .85em;
-  li {
-    border-bottom: 1px dotted #ddd;
-    padding-bottom: 25px;
+  > li {
+    padding: $padding-large-vertical;
     margin-bottom: 25px;
+    background: white;
+    border: $border;
+    border-radius: $border-radius-base;
     .avatar {
       display: block;
-      margin-top: 20px;
       img {
         box-shadow: 0 2px 5px fade-out(black, .9);
       }
     }
-    h4 a {
-      color: $brand-danger;
-    }
-    h5 a {
-      font-weight: 300;
-      color: $text-color;
-    }
+  }
+  h4 a {
+    color: $brand-danger;
+  }
+  h5 a {
+    font-weight: 300;
+    color: $text-color;
   }
   .talk-detail {
     text-align: left;
     * {
       font-size: .95em;
+    }
+  }
+  .talk-thumbnail {
+    margin-bottom: 15px;
+  }
+}
+
+.events-feed {
+  h4 a {
+    color: $brand-success;
+  }
+}
+
+.tags {
+  color: $gray-light;
+  .glyphicon {
+    font-size: .75em;
+    top: 2px;
+  }
+  a {
+    color: $gray-light;
+    &:hover {
+      color: $brand-primary;
     }
   }
 }
@@ -228,6 +261,26 @@ label {
   }
 }
 
+.talk-thumbnail {
+  @include clearfix();
+  .avatar {
+    margin-top: 0;
+    margin-right: 10px;
+    float: left;
+    img { width: 30px; }
+  }
+  h4, h5 {
+    font-size: 13px;
+    margin: 0;
+  }
+  h4 {
+    margin-bottom: 2px;
+    a {
+      color: $brand-danger;
+    }
+  }
+}
+
 //Add Talk page
 
 .back-arrow {
@@ -237,7 +290,6 @@ label {
 }
 
 textarea {
-  min-height: 150px;
   resize: vertical;
 }
 

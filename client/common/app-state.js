@@ -17,7 +17,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       },
       views : {
         'main': {
-          templateUrl: '../talks/list/list.html',
+          templateUrl: '../talks/list/list-events.html',
           controller: 'TalksListCtrl'
         },
         'nav': {

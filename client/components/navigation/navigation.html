@@ -1,43 +1,45 @@
 <nav id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
-    <div class="user-panel col-xs-3">
-      <a
-        ng-show="conn.isGuest"
-        type="button"
-        class="btn btn-sm btn-primary"
-        href="{{provider.url}}">
-        <span class="glyphicon glyphicon-off"></span>
-        Login with Twitter
-      </a>
-      <div ng-show="!conn.isGuest" class="btn-group">
-        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
-          <span class="avatar">
-            <span class="glyphicon glyphicon-user"><img src=""></span>
-          </span>
-          <span class="username">{{users.$local.displayName}}</span> <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="{{conn.logoutUrl}}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-xs-6">
-      <h1 id="site-id">
-        <a href="/">Soapbox</a>
-      </h1>
-    </div>
-    <div class="user-actions col-xs-3">
-      <div class="btn-group">
-        <button
-          ng-class="{ 'disabled': conn.isGuest }"
+    <div class="row">
+      <div class="user-panel col-xs-3">
+        <a
+          ng-show="conn.isGuest"
           type="button"
-          class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-plus-sign"></span> New
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="#" ui-sref="talks.add">Talk</a></li>
-          <li><a href="#" ui-sref="events.add">Event</a></li>
-        </ul>
+          class="btn btn-sm btn-primary"
+          href="{{provider.url}}">
+          <span class="glyphicon glyphicon-off"></span>
+          Login with Twitter
+        </a>
+        <div ng-show="!conn.isGuest" class="btn-group">
+          <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
+            <span class="avatar">
+              <span class="glyphicon glyphicon-user"><img src=""></span>
+            </span>
+            <span class="username">{{users.$local.displayName}}</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{conn.logoutUrl}}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <h1 id="site-id">
+          <a href="/">Soapbox</a>
+        </h1>
+      </div>
+      <div class="user-actions col-xs-3">
+        <div class="btn-group">
+          <button
+            ng-class="{ 'disabled': conn.isGuest }"
+            type="button"
+            class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-plus-sign"></span> New
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" ui-sref="talks.add">Talk</a></li>
+            <li><a href="#" ui-sref="events.add">Event</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -56,4 +58,5 @@
           }
       }
   });
+  $('#filter-date-start').datetimepicker();
 </script>
