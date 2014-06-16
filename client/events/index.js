@@ -3,9 +3,7 @@
 'use strict';
 
 module.exports = angular
-  .module('sb.talks', [
+  .module('sb.events', [
     require('../components/talk').name,
-    require('./list').name,
-    require('./detail').name,
-    require('./add').name
+    require('./list').name
   ]);

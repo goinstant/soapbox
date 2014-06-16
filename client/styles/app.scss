@@ -4,6 +4,7 @@
 body {
   padding-top: $navbar-height + $padding-large-vertical*3;
   padding-bottom: $padding-large-vertical*3;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -11,9 +12,11 @@ img {
   height: auto;
 }
 
-#main.container {
-  padding-left: 0;
-  padding-right: 0;
+.form-control {
+  @include transition(border-color ease-in-out 0.1s, box-shadow ease-in-out 0.1s);
+  &:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0px 2px rgba(102, 175, 233, 0.6);
+  }
 }
 
 //= Header/Navbar
@@ -154,29 +157,46 @@ label {
   font-weight: 100;
 }
 
-#sidebar {
-  .well {
-    padding-left: 0;
-    padding-right: 0;
+#list-nav {
+  margin-bottom: 30px;
+  .nav {
+    border-bottom: 0;
+    font-size: .9em;
+  }
+}
+
+.filters {
+  font-size: .9em;
+  .row > .form-group:first-child {
+    padding-top: 20px;
+    border-top: $border;
   }
 }
 
 @media (min-width: $screen-sm-min) {
-  #sidebar .well .form-group {
-    width: auto;
+  #sidebar .filters .form-group {
+    width: 100%;
     float: left;
   }
 }
 
-.talks-feed {
+.label-small {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.feed {
   padding-left: 0;
   list-style-type: none;
-  margin-top: 15px;
-  font-size: .85em;
-  li {
-    border-bottom: 1px dotted #ddd;
-    padding-bottom: 25px;
+  font-size: .9em;
+  @include clearfix();
+  > li {
+    padding: $padding-large-vertical;
     margin-bottom: 25px;
+    background: white;
+    border: $border;
+    border-radius: $border-radius-base;
     .avatar {
       display: block;
       margin-top: 20px;
@@ -184,18 +204,44 @@ label {
         box-shadow: 0 2px 5px fade-out(black, .9);
       }
     }
-    h4 a {
-      color: $brand-danger;
-    }
-    h5 a {
-      font-weight: 300;
-      color: $text-color;
-    }
+  }
+  h4 a {
+    color: $brand-danger;
+  }
+  h5 a {
+    font-weight: 300;
+    color: $text-color;
   }
   .talk-detail {
     text-align: left;
     * {
       font-size: .95em;
+    }
+  }
+  .talk-thumbnail {
+    margin-bottom: 15px;
+    &:first-child {
+      margin-top: 15px;
+    }
+  }
+}
+
+.events-feed {
+  h4 a {
+    color: $brand-success;
+  }
+}
+
+.tags {
+  color: $gray-light;
+  .glyphicon {
+    font-size: .75em;
+    top: 2px;
+  }
+  a {
+    color: $gray-light;
+    &:hover {
+      color: $brand-primary;
     }
   }
 }
@@ -219,6 +265,26 @@ label {
   }
 }
 
+.talk-thumbnail {
+  @include clearfix();
+  .avatar {
+    margin-top: 0;
+    margin-right: 10px;
+    float: left;
+    img { width: 30px; }
+  }
+  h4, h5 {
+    font-size: 13px;
+    margin: 0;
+  }
+  h4 {
+    margin-bottom: 2px;
+    a {
+      color: $brand-danger;
+    }
+  }
+}
+
 //Add Talk page
 
 .back-arrow {
@@ -228,7 +294,6 @@ label {
 }
 
 textarea {
-  min-height: 150px;
   resize: vertical;
 }
 
@@ -238,31 +303,36 @@ textarea {
 
 //Talk single
 
-.talk-single {
+.detail {
   .talk-title {
-    margin-bottom: -25px;
+    margin-bottom: 35px;
+    @include clearfix();
+    border-bottom: 3px solid darken($body-bg, 5%);
     .avatar {
       margin-right: 25px;
+      margin-bottom: -20px;
     }
-  }
-  .talk-actions {
-    text-align: right;
-    padding-top: 50px;
-  }
-  .page-header {
-    margin-top: 25px;
-    border-bottom: 3px solid darken($body-bg, 5%);
   }
   h2 {
     color: $brand-danger;
+  }
+  .event-title h2 {
+    color: $brand-primary;
   }
   h4, h4 a {
     color: $text-color;
     font-weight: 100;
   }
   .talk-detail {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding: 0 20px 20px;
+    background: white;
+    border-radius: 3px;
+    border: $border;
+    clear: both;
     h6 {
-      margin-top: 0;
+      margin-top: 20px;
       border-bottom: 1px solid $border-color;
       padding-bottom: .5em;
     }
@@ -272,8 +342,11 @@ textarea {
   }
   .talk-desc {
     > p {
-      font-size: 20px;
+      font-size: 17px;
       line-height: 1.6;
     }
+  }
+  .nav {
+    margin: 20px 0;
   }
 }

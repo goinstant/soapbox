@@ -1,6 +1,7 @@
-<h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new talk</h3>
+<div class="col-md-12">
+  <h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new talk</h3>
 <hr>
-<form name="talkForm" ng-submit="submitTalkForm(talkForm.$valid)" class="form-horizontal" role="form" novalidate>
+<form name="talkForm" ng-submit="submitTalkForm(talkForm.$valid)" class="form-horizontal col-md-12" role="form" novalidate>
   <div class="form-group">
     <label for="talk_title" class="col-sm-3 control-label">Title *</label>
     <div class="col-sm-9">
@@ -10,25 +11,19 @@
   <div class="form-group">
     <label for="talk_desc" class="col-sm-3 control-label">Description *</label>
     <div class="col-sm-9">
-      <textarea name="description" ng-model="description" class="form-control" required></textarea>
+      <textarea class="form-control" id="talk_desc" rows="10"></textarea>
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Est. Duration *</label>
+    <label for="external_link_1" class="col-sm-3 control-label">External links</label>
     <div class="col-sm-9">
-      <input name="duration" ng-model="duration" type="text" class="form-control input-lg" placeholder="30 Mins" required>
+      <input type="text" class="form-control input-md" id="external_link_1" placeholder="http://google.com">
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Deck</label>
+    <label for="tags" class="col-sm-3 control-label">Tags</label>
     <div class="col-sm-9">
-      <input name="deck" ng-model="deck" type="url" class="form-control input-lg" placeholder="https://slideshare.com/your_deck">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Recording</label>
-    <div class="col-sm-9">
-      <input name="video" ng-model="video" type="url" class="form-control input-lg" placeholder="https://youtube.com/your_deck">
+      <input type="text" class="form-control input-md" id="tags" placeholder="javascript, node, development">
     </div>
   </div>
   <div class="form-group">
