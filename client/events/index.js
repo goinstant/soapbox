@@ -5,5 +5,7 @@
 module.exports = angular
   .module('sb.events', [
     require('../components/talk').name,
-    require('./list').name
+    require('./list').name,
+    require('./detail').name,
+    require('./add').name
   ]);

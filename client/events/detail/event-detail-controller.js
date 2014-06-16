@@ -3,5 +3,5 @@
 'use strict';
 
 module.exports = function EventDetailCtrl($scope) {
-  console.log('EventListCtrl Loaded');
+  console.log('EventDetailCtrl Loaded');
 };

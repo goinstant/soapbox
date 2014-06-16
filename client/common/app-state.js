@@ -30,6 +30,15 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('events.add', {
+      url: '/add',
+      views: {
+        'main@': {
+          templateUrl: '../events/add/event-add.html',
+          controller: 'EventAddCtrl'
+        }
+      }
+    })
     .state('talks', {
       url: '/talks',
       resolve: {
