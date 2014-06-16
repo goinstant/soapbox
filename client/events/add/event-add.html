@@ -1,21 +1,32 @@
 <div class="col-md-12">
   <h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new event</h3>
 <hr>
-<form name="talkForm" ng-submit="submitTalkForm(talkForm.$valid)" class="form-horizontal col-md-12" role="form" novalidate>
+</div>
+<form class="form-horizontal col-md-12" role="form">
   <div class="form-group">
-    <label for="talk_title" class="col-sm-3 control-label">Title *</label>
+    <label for="event_title" class="col-sm-3 control-label">Event name</label>
     <div class="col-sm-9">
-      <input name="title" ng-model="title" type="text" class="form-control input-lg" placeholder="Achieving Perfection in All Things" required>
+      <input type="text" class="form-control input-lg" id="event_title" placeholder="How to make a webapp better than it already is">
     </div>
   </div>
   <div class="form-group">
-    <label for="talk_desc" class="col-sm-3 control-label">Description *</label>
+    <label for="event_date" class="col-sm-3 control-label">Event date</label>
     <div class="col-sm-9">
-      <textarea class="form-control" id="talk_desc" rows="10"></textarea>
+      <div class='input-group date' id='event_date_picker'>
+        <input id="event_date" class="form-control" type="text"/>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="external_link_1" class="col-sm-3 control-label">External links</label>
+    <label for="talk_desc" class="col-sm-3 control-label">Description of the event</label>
+    <div class="col-sm-9">
+      <textarea class="form-control" id="talk_desc" rows="3"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="external_link_1" class="col-sm-3 control-label">Event homepage</label>
     <div class="col-sm-9">
       <input type="text" class="form-control input-md" id="external_link_1" placeholder="http://google.com">
     </div>
@@ -26,20 +37,28 @@
       <input type="text" class="form-control input-md" id="tags" placeholder="javascript, node, development">
     </div>
   </div>
+  <hr>
   <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-9">
-      <div class="radio">
-        <label>
-          <input ng-model="talkVisibility" default name="talkVisibility" type="radio" value="public"> <strong>Public</strong> <small>(anyone can see your talk)</small>
-        </label>
+    <label for="scheduled_talk_1" class="col-sm-3 control-label">Scheduled Talks</label>
+    <div class="col-sm-9">
+      <div class="event-add-talks row">
+        <div class="col-sm-8">
+          <select name="scheduled_talk_1" id="scheduled_talk_1" class="form-control" placeholder="Choose a talk">
+            <option>Choose a talk</option>
+            <option>Talk name</option>
+            <option>Talk name</option>
+            <option>Talk name</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control input-md" id="scheduled_talk_1_time" placeholder="Time of talk">
+        </div>
       </div>
-      <div class="radio">
-        <label>
-          <input ng-model="talkVisibility" name="talkVisibility" type="radio" value="private"> <strong>Private</strong> <small>(only people with the link can see your talk)</small>
-        </label>
-      </div>
+      <br>
+      <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Add another talk</button>
     </div>
   </div>
+  <hr>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <div ng-show="!talkForm.$valid && submitted" class="alert alert-danger">
