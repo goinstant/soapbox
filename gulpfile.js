@@ -22,7 +22,8 @@ var pathTo = {
     './client/*.js',
     './client/common/**/*.js',
     './client/components/**/*.js',
-    './client/talks/**/*.js'
+    './client/talks/**/*.js',
+    './client/events/**/*.js'
   ],
   watchBuild: [
     './client/build/*.js',

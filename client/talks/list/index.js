@@ -3,5 +3,5 @@
 'use strict';
 
 module.exports = angular
-  .module('lnl.talks.list', [])
+  .module('sb.talks.list', [])
   .controller('TalksListCtrl', require('./list-controller'));

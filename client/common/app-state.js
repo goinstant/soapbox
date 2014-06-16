@@ -8,6 +8,28 @@ module.exports = function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/talks');
 
   $stateProvider
+    .state('events', {
+      url: '/events',
+      views : {
+        'main': {
+          templateUrl: '../events/list/event-list.html',
+          controller: 'EventListCtrl'
+        },
+        'nav': {
+          templateUrl: '../components/navigation/navigation.html',
+          controller: 'NavigationCtrl'
+        }
+      }
+    })
+    .state('events.detail', {
+      url: '/:eventId',
+      views: {
+        'main@': {
+          templateUrl: '../events/detail/event-detail.html',
+          controller: 'EventDetailCtrl'
+        }
+      }
+    })
     .state('talks', {
       url: '/talks',
       resolve: {
@@ -40,16 +62,16 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     })
     .state('talks.detail', {
       url: '/:talkId',
-      views : {
+      views: {
         'main@': {
-          templateUrl: '../talks/detail/detail.html',
+          templateUrl: '../talks/detail/detail-talk.html',
           controller: 'TalksDetailCtrl'
         }
       },
       resolve: {
         currentTalk: function($goKey, $stateParams, $q) {
           var deferred = $q.defer();
-
+          console.log(models[$stateParams.talkId]);
           if (!models[$stateParams.talkId]) {
             models[$stateParams.talkId] = $goKey('talks/org/public').$key($stateParams.talkId).$sync();
           }

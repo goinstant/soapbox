@@ -8,6 +8,7 @@ angular
     'goangular',
     require('./components/navigation').name,
     require('./components/auth').name,
+    require('./events').name,
     require('./talks').name,
     require('./app-controller').name
   ])
