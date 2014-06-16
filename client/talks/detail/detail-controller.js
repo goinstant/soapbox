@@ -2,10 +2,8 @@
 
 'use strict';
 
-module.exports = function DetailCtrl($scope, $stateParams, $goKey, $goUsers) {
-  $scope.currentTalk = $goKey('talks/org/public').$key($stateParams.talkId).$sync();
+module.exports = function DetailCtrl($scope, currentTalk) {
+  $scope.currentTalk = currentTalk;
 
-  $scope.currentTalk.$on('ready', function() {
-    $scope.currentTalk.author = $goUsers().$getUser($scope.currentTalk.author).$sync();
-  });
+  $scope.$on('$destroy', currentTalk.$destroy.bind(currentTalk));
 };
