@@ -2,6 +2,8 @@
 
 'use strict';
 
+var models = [];
+
 module.exports = function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/talks');
 
@@ -42,6 +44,19 @@ module.exports = function($stateProvider, $urlRouterProvider) {
         'main@': {
           templateUrl: '../talks/detail/detail.html',
           controller: 'TalksDetailCtrl'
+        }
+      },
+      resolve: {
+        currentTalk: function($goKey, $stateParams, $q) {
+          var deferred = $q.defer();
+
+          if (!models[$stateParams.talkId]) {
+            models[$stateParams.talkId] = $goKey('talks/org/public').$key($stateParams.talkId).$sync();
+          }
+
+          deferred.resolve(models[$stateParams.talkId]);
+
+          return deferred.promise;
         }
       }
     });

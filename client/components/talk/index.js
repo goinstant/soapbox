@@ -4,4 +4,4 @@
 
 module.exports = angular
   .module('sb.talk', [])
-  .factory('TalkModel', require('./talk-model.js').factory);
+  .factory('Talk', require('./talk-model.js').factory);
