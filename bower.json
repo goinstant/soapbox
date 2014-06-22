@@ -1,0 +1,27 @@
+{
+  "name": "lnl",
+  "version": "0.0.0",
+  "authors": [
+    "Matthew Creager <mattcreager@goinstant.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/vendor_components",
+    "e2e-tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "angular": "~1.2.16",
+    "modernizr": "~2.8.2",
+    "angular-ui-router": "~0.2.10",
+    "goangular": "#2142c453a5",
+    "bootstrap-sass-official": "v3.1.1+2",
+    "jquery": "~2.1.1",
+    "eonasdan-bootstrap-datetimepicker": "~3.0.0",
+    "momentjs": "~2.6.0"
+  }
+}

@@ -1,0 +1,78 @@
+<div class="col-md-12">
+  <h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new event</h3>
+<hr>
+</div>
+<form class="form-horizontal col-md-12" role="form">
+  <div class="form-group">
+    <label for="event_title" class="col-sm-3 control-label">Event name</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-lg" id="event_title" placeholder="How to make a webapp better than it already is">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="event_date" class="col-sm-3 control-label">Event date</label>
+    <div class="col-sm-9">
+      <div class='input-group date' id='event_date_picker'>
+        <input id="event_date" class="form-control" type="text"/>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="talk_desc" class="col-sm-3 control-label">Description of the event</label>
+    <div class="col-sm-9">
+      <textarea class="form-control" id="talk_desc" rows="3"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="external_link_1" class="col-sm-3 control-label">Event homepage</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-md" id="external_link_1" placeholder="http://google.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tags" class="col-sm-3 control-label">Tags</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-md" id="tags" placeholder="javascript, node, development">
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="scheduled_talk_1" class="col-sm-3 control-label">Scheduled Talks</label>
+    <div class="col-sm-9">
+      <div class="event-add-talks row">
+        <div class="col-sm-8">
+          <select name="scheduled_talk_1" id="scheduled_talk_1" class="form-control" placeholder="Choose a talk">
+            <option>Choose a talk</option>
+            <option>Talk name</option>
+            <option>Talk name</option>
+            <option>Talk name</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" class="form-control input-md" id="scheduled_talk_1_time" placeholder="Time of talk">
+        </div>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus-sign"></span> Add another talk</button>
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <div ng-show="!talkForm.$valid && submitted" class="alert alert-danger">
+        <h5>Woops we have errors...</h5>
+        <p ng-show="talkForm.title.$invalid"> You forgot to fill out the title, dummy!</p>
+        <p ng-show="talkForm.description.$invalid"> You forgot to fill out the description!</p>
+        <p ng-show="talkForm.duration.$invalid"> You forgot to fill out the duration!</p>
+        <p ng-show="talkForm.deck.$invalid"> The deck url you provided doesn't appear to be valid?</p>
+        <p ng-show="talkForm.recording.$invalid"> The recording url you provided doesn't appear to be valid?</p>
+      </div>
+      <div class="pull-right">
+          <a href="/" class="cancel">Cancel</a>
+          <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Create talk</button>
+      </div>
+    </div>
+  </div>
+</form>

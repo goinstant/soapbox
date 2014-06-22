@@ -1,0 +1,50 @@
+$bootstrap-assets: "/vendor_components/bootstrap-sass-official/vendor/assets";
+$icon-font-path: "#{$bootstrap-assets}/fonts/bootstrap/";
+
+$border-color: #ddd;
+$border: 1px solid $border-color;
+
+//== Colors
+$brand-primary:         #4583CA;
+$brand-success:         #51BF80;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+//== Scaffolding
+
+$container-tablet:      auto;
+
+$body-bg:               #f9f7f4;
+$text-color:            #7A7269;
+
+//== Typography
+$font-family-sans-serif:  "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "source-serif-pro", Georgia, "Times New Roman", Times, serif;
+
+$font-size-base:          18px;
+$line-height-base:        1.5;
+
+$headings-font-family:    "soleil", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-weight:    600;
+$headings-line-height:    1.1;
+$headings-color:          inherit;
+
+//== Buttons
+$btn-primary-border:             rgba(0,0,0,.0);
+$btn-success-border:             rgba(0,0,0,.0);
+$btn-info-border:                rgba(0,0,0,.0);
+$btn-warning-border:             rgba(0,0,0,.0);
+$btn-danger-border:              rgba(0,0,0,.0);
+
+//== Navbar
+$navbar-height: 175px;
+$header-scale-animation: .15s ease;
+
+//== Well
+$well-bg:                     darken($body-bg, 5%);
+$well-border:                 darken($well-bg, 7%);
+
+//=== Shared nav styles
+$nav-link-padding:                          7px 12px 6px;
+$dropdown-divider-bg:                       #555;

@@ -1,0 +1,4 @@
+node_modules
+vendor_components
+build
+.DS_Store

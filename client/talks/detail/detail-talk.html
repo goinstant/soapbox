@@ -1,0 +1,39 @@
+<div class="talk-single container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="talk-title clearfix">
+          <img ng-src="{{ currentTalk.author.avatarUrl}}" class="avatar img-circle pull-left" alt="">
+        <div class="pull-left">
+          <h2>{{ talk.title }}</h>
+          <h4><span class="glyphicon glyphicon-user"></span> <a href="#">{{ talk.author.displayName }}</a></h4>
+          <p class="tags">
+            <span class="glyphicon glyphicon-tag"></span> <a href="#">Tag</a>, <a href="#">Tag</a>, <a href="#">Tag</a>
+          </p>
+        </div>
+      </div>
+      <div class="talk-desc pull-left">
+        <p>{{ talk.description }}</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="talk-detail">
+        <div class="talk-time">
+          <h6 class="label-small">Next Talk</h6>
+          <h5><span class="glyphicon glyphicon-calendar"></span> June 2, 2014</h5>
+          <h5><span class="glyphicon glyphicon-time"></span> 12:00 PM</h5>
+          <div class="talk-location">
+            <h5><span class="glyphicon glyphicon-map-marker"></span> GoInstant Halifax Room</h5>
+            <h5>Halifax, NS</h5>
+          </div>
+        </div>
+        <div class="talk-links">
+          <h6 class="label-small"><span class="glyphicon glyphicon-link"></span> Related links:</h6>
+          <a href="#">Slides</a>, <a href="#">Video</a>
+        </div>
+      </div>
+      <div class="talk-actions">
+        <button type="button" class="btn btn-danger btn-default btn-block"><span class="glyphicon glyphicon-heart-empty"></span> Request talk at an event</button>
+      </div>
+    </div>
+  </div>
+</div>

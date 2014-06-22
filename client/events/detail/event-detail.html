@@ -1,0 +1,59 @@
+<div class="detail container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="event-title clearfix">
+        <div class="pull-left">
+          <h2><span class="glyphicon glyphicon-calendar"></span> {{ event.title }}</h2>
+          <p class="tags">
+            <span class="glyphicon glyphicon-tag"></span> <a href="#">Tag</a>, <a href="#">Tag</a>, <a href="#">Tag</a>
+          </p>
+        </div>
+      </div>
+      <div class="pull-left">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#event-desc" data-toggle="tab"><span class="glyphicon glyphicon-info-sign"></span> Description</a></li>
+          <li><a href="#event-schedule" data-toggle="tab"><span class="glyphicon glyphicon-th-list"></span> Schedule</a></li>
+          <li><a href="#event-proposed-talks" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Proposed Talks</a></li>
+        </ul>
+        <div class="tab-content pull-left">
+          <div class="tab-pane active fade in talk-desc" id="event-desc">
+            <p>{{ event.description }}</p>
+          </div>
+          <div class="tab-pane fade" id="event-schedule">
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, vel, inventore blanditiis quaerat deserunt in consequatur soluta reprehenderit rerum iusto facilis quos necessitatibus eveniet reiciendis dolorum consequuntur praesentium earum pariatur. </p>
+          </div>
+          <div class="tab-pane fade" id="event-proposed-talks">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, vel, inventore blanditiis quaerat deserunt in consequatur soluta reprehenderit rerum iusto facilis quos necessitatibus eveniet reiciendis dolorum consequuntur praesentium earum pariatur. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="talk-detail">
+        <div class="talk-time">
+          <h6 class="label-small">Date &amp; Time</h6>
+          <h5><span class="glyphicon glyphicon-calendar"></span> June 2, 2014</h5>
+          <h5><span class="glyphicon glyphicon-time"></span> 12:00 PM</h5>
+          <div class="talk-location">
+            <h5><span class="glyphicon glyphicon-map-marker"></span> GoInstant Halifax Room</h5>
+            <h5>Halifax, NS</h5>
+          </div>
+        </div>
+        <div class="talk-links">
+          <h6 class="label-small"><span class="glyphicon glyphicon-link"></span> Related links:</h6>
+          <a href="#">http://eventhomepage.com</a>
+        </div>
+      </div>
+      <div class="talk-actions">
+        <button type="button" class="btn btn-danger btn-default btn-block"><span class="glyphicon glyphicon-tag"></span> Attend event</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.nav li > a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+</script>

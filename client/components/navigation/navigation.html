@@ -1,0 +1,65 @@
+<nav id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="user-panel col-xs-3">
+        <a
+          ng-show="conn.isGuest"
+          type="button"
+          class="btn btn-sm btn-primary"
+          href="{{provider.url}}">
+          <span class="glyphicon glyphicon-off"></span>
+          Login with Twitter
+        </a>
+        <div ng-show="!conn.isGuest" class="btn-group">
+          <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
+            <span class="avatar" style="padding: 0;"><img ng-src="{{ users.$local.avatarUrl }}" class="img-circle"></span>
+            <span class="username">{{ users.$local.displayName }}</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ conn.logoutUrl }}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <h1 id="site-id">
+          <a href="/">Soapbox</a>
+        </h1>
+      </div>
+      <div class="user-actions col-xs-3">
+        <div class="btn-group">
+          <button
+            ng-class="{ 'disabled': conn.isGuest }"
+            type="button"
+            class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-plus-sign"></span> New
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" ui-sref="talks.add"><span class="glyphicon glyphicon-comment"></span> Talk</a></li>
+            <li><a href="#" ui-sref="events.add"><span class="glyphicon glyphicon-calendar"></span> Event</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript">
+  window.addEventListener('scroll', function(e){
+      var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+          shrinkOn = 70,
+          header = $("#header");
+      if (distanceY > shrinkOn) {
+          $(header).addClass("smaller");
+
+      } else {
+          if ($(header).hasClass("smaller")) {
+              $(header).removeClass("smaller");
+          }
+      }
+  });
+  $(function () {
+    $('#filter-date-start').datetimepicker();
+    $('#event_date_picker').datetimepicker();
+  });
+</script>

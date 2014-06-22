@@ -1,0 +1,59 @@
+<div class="col-md-12">
+  <h3><a href="/"><span class="glyphicon glyphicon-chevron-left back-arrow"></span></a> Add a new talk</h3>
+<hr>
+<form name="talkForm" ng-submit="submitTalkForm(talkForm.$valid)" class="form-horizontal col-md-12" role="form" novalidate>
+  <div class="form-group">
+    <label for="talk_title" class="col-sm-3 control-label">Title *</label>
+    <div class="col-sm-9">
+      <input name="title" ng-model="title" type="text" class="form-control input-lg" placeholder="Achieving Perfection in All Things" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="talk_desc" class="col-sm-3 control-label">Description *</label>
+    <div class="col-sm-9">
+      <textarea class="form-control" id="talk_desc" rows="10"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="external_link_1" class="col-sm-3 control-label">External links</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-md" id="external_link_1" placeholder="http://google.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tags" class="col-sm-3 control-label">Tags</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control input-md" id="tags" placeholder="javascript, node, development">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <div class="radio">
+        <label>
+          <input ng-model="talkVisibility" default name="talkVisibility" type="radio" value="public"> <strong>Public</strong> <small>(anyone can see your talk)</small>
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input ng-model="talkVisibility" name="talkVisibility" type="radio" value="private"> <strong>Private</strong> <small>(only people with the link can see your talk)</small>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <div ng-show="!talkForm.$valid && submitted" class="alert alert-danger">
+        <h5>Woops we have errors...</h5>
+        <p ng-show="talkForm.title.$invalid"> You forgot to fill out the title, dummy!</p>
+        <p ng-show="talkForm.description.$invalid"> You forgot to fill out the description!</p>
+        <p ng-show="talkForm.duration.$invalid"> You forgot to fill out the duration!</p>
+        <p ng-show="talkForm.deck.$invalid"> The deck url you provided doesn't appear to be valid?</p>
+        <p ng-show="talkForm.recording.$invalid"> The recording url you provided doesn't appear to be valid?</p>
+      </div>
+      <div class="pull-right">
+          <a href="/" class="cancel">Cancel</a>
+          <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok"></span> Create talk</button>
+      </div>
+    </div>
+  </div>
+</form>
